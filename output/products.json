@@ -1,0 +1,295 @@
+[
+  {
+    "name": "Soho S (Textured)",
+    "url": "https://meroliving.com/products/soho-s-textured",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/soho-4.png?v=1777449717",
+    "colors": [
+      "Grey",
+      "Sand"
+    ],
+    "price_range": "19900.00"
+  },
+  {
+    "name": "Reewa",
+    "url": "https://meroliving.com/products/reewa",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/reewa-3.jpg?v=1777111801",
+    "colors": [
+      "Gray",
+      "Black",
+      "White",
+      "Sand"
+    ],
+    "price_range": "36000.00"
+  },
+  {
+    "name": "Avni",
+    "url": "https://meroliving.com/products/avni",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/avni-main.jpg?v=1777110890",
+    "colors": [
+      "Stone",
+      "Black"
+    ],
+    "price_range": "36500.00"
+  },
+  {
+    "name": "Varsha - Table Top",
+    "url": "https://meroliving.com/products/varsha-table-top",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/varsha-2.jpg?v=1777112609",
+    "colors": [
+      "Gray",
+      "Black",
+      "White",
+      "Sand"
+    ],
+    "price_range": "7800.00"
+  },
+  {
+    "name": "Tura Table",
+    "url": "https://meroliving.com/products/tura-table",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Tura-medium.jpg?v=1757418538",
+    "colors": [
+      "Ash Grey",
+      "Black",
+      "White"
+    ],
+    "price_range": "64500.00"
+  },
+  {
+    "name": "Willow Table",
+    "url": "https://meroliving.com/products/willow-table",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/willow-table.jpg?v=1757418539",
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "price_range": "87500.00"
+  },
+  {
+    "name": "Deco Chair",
+    "url": "https://meroliving.com/products/deco-chair",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Chair-deco.jpg?v=1757418538",
+    "colors": [],
+    "price_range": "115500.00"
+  },
+  {
+    "name": "Flora with Stand",
+    "url": "https://meroliving.com/products/flora-with-stand",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/flora-with-stand-1.jpg?v=1757528286",
+    "colors": [],
+    "price_range": "34000.00"
+  },
+  {
+    "name": "Samsara Planter",
+    "url": "https://meroliving.com/products/samsara-planter",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/grey_black-samsara.jpg?v=1777109147",
+    "colors": [
+      "Black",
+      "Sand",
+      "White",
+      "Grey"
+    ],
+    "price_range": "39000.00"
+  },
+  {
+    "name": "Kaman",
+    "url": "https://meroliving.com/products/kaman",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Kaman-main.png?v=1717502298",
+    "colors": [
+      "White"
+    ],
+    "price_range": "31000.00"
+  },
+  {
+    "name": "Neto",
+    "url": "https://meroliving.com/products/neto",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Neto-black-main.png?v=1717502724",
+    "colors": [
+      "Grey",
+      "Terracotta"
+    ],
+    "price_range": "35500.00"
+  },
+  {
+    "name": "Maurio",
+    "url": "https://meroliving.com/products/maurio",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Maurio-black-main.png?v=1717502525",
+    "colors": [
+      "Black",
+      "Sand"
+    ],
+    "price_range": "7800.00"
+  },
+  {
+    "name": "Earthen Collection",
+    "url": "https://meroliving.com/products/earthen-collection",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Earthen_-_Main_Concrete_copy_1.png?v=1721303096",
+    "colors": [
+      "Concrete",
+      "Orange",
+      "Sand",
+      "Sky Blue"
+    ],
+    "price_range": "19900.00"
+  },
+  {
+    "name": "Tura Large",
+    "url": "https://meroliving.com/products/tura-large",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/TuraBlack.png?v=1717502937",
+    "colors": [
+      "Black",
+      "White",
+      "Sand"
+    ],
+    "price_range": "45500.00"
+  },
+  {
+    "name": "Tura Medium",
+    "url": "https://meroliving.com/products/tura-medium",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/TuraBlack.png?v=1717502937",
+    "colors": [
+      "Black",
+      "White",
+      "Sand"
+    ],
+    "price_range": "29500.00"
+  },
+  {
+    "name": "Tura Small",
+    "url": "https://meroliving.com/products/tura-small",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/TuraBlack_22de3dcc-0d45-4a4b-a24b-c7b400a2cebc.png?v=1717503012",
+    "colors": [
+      "Black",
+      "White",
+      "Sand"
+    ],
+    "price_range": "16500.00"
+  },
+  {
+    "name": "Soho L",
+    "url": "https://meroliving.com/products/soho-l",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Soho-Whote.png?v=1717426860",
+    "colors": [
+      "Black",
+      "Grey",
+      "White",
+      "Sand"
+    ],
+    "price_range": "45500.00"
+  },
+  {
+    "name": "Soho S",
+    "url": "https://meroliving.com/products/soho-s",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Sohosmall-black_12341246-e7e3-4ce2-b21f-32dfca1ee49b.png?v=1717426918",
+    "colors": [
+      "Black",
+      "Grey",
+      "White",
+      "Sand"
+    ],
+    "price_range": "19900.00"
+  },
+  {
+    "name": "Willow",
+    "url": "https://meroliving.com/products/willow",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Willow-blackmain.png?v=1717426979",
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "price_range": "45500.00"
+  },
+  {
+    "name": "Mavi",
+    "url": "https://meroliving.com/products/mavi",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Mavi-black.png?v=1717418055",
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "price_range": "34500.00"
+  },
+  {
+    "name": "Flora",
+    "url": "https://meroliving.com/products/flora",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Flora-Black.png?v=1757418703",
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "price_range": "18300.00"
+  },
+  {
+    "name": "Maya",
+    "url": "https://meroliving.com/products/maya",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Maya-main-black.png?v=1717516461",
+    "colors": [
+      "Black",
+      "Sand",
+      "White"
+    ],
+    "price_range": "18900.00"
+  },
+  {
+    "name": "Mukul L",
+    "url": "https://meroliving.com/products/mukul-l",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Mukkul-Colors--sand.png?v=1717516528",
+    "colors": [
+      "Sand",
+      "White"
+    ],
+    "price_range": "26500.00"
+  },
+  {
+    "name": "Mukul S",
+    "url": "https://meroliving.com/products/mukul-s",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Mukkul-Colors-grey_935716c1-966b-4690-a8a5-61b13f13305d.png?v=1717516563",
+    "colors": [
+      "White",
+      "Sand"
+    ],
+    "price_range": "17500.00"
+  },
+  {
+    "name": "Veeru B",
+    "url": "https://meroliving.com/products/veeru-b",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/621736773_18084321571946361_6585876686493352743_n.jpg?v=1775130361",
+    "colors": [
+      "Black"
+    ],
+    "price_range": "61500.00"
+  },
+  {
+    "name": "Veeru A",
+    "url": "https://meroliving.com/products/veeru",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Veeru-grey.png?v=1717592815",
+    "colors": [
+      "Grey",
+      "Black"
+    ],
+    "price_range": "46500.00"
+  },
+  {
+    "name": "Vasl",
+    "url": "https://meroliving.com/products/vasl",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Vasl-Grey.png?v=1717592666",
+    "colors": [
+      "Grey",
+      "Black"
+    ],
+    "price_range": "32500.00"
+  },
+  {
+    "name": "Tibu",
+    "url": "https://meroliving.com/products/tibu",
+    "image": "https://cdn.shopify.com/s/files/1/0593/4294/6390/files/Tibu-Grey.png?v=1717592730",
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "price_range": "17000.00"
+  }
+]
