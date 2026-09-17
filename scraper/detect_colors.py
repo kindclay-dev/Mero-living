@@ -115,6 +115,22 @@ def assign(centres, names):
             for ci in range(n_c)]
 
 
+# The detector is a heuristic and pale neutrals are its weak spot. Where a
+# product's mapping has been checked by eye and is wrong, pin it here; these
+# win over whatever the pixels say.
+OVERRIDES = {
+    # Ribbed table-top planter, shot small in frame: the cast shadow dominates
+    # the sample, so four of the five frames came back White.
+    "varsha-table-top": {
+        "01.jpg": "Gray",     # slate blue
+        "02.jpg": "Sand",     # cream
+        "03.jpg": "White",
+        "04.jpg": "Black",    # macro
+        "05.jpg": "Black",
+    },
+}
+
+
 def colours_for(product, products_dir):
     """{filename: colour name} for one catalogue entry."""
     names = [c["name"] for c in product.get("colors", [])]
@@ -124,7 +140,13 @@ def colours_for(product, products_dir):
     cols = [subject_colour(Path(products_dir) / product["slug"] / f) for f in files]
     labels, centres = cluster(cols)
     per_cluster = assign(centres, names)
-    return {f: per_cluster[labels[i]] for i, f in enumerate(files)}
+    out = {f: per_cluster[labels[i]] for i, f in enumerate(files)}
+
+    pinned = OVERRIDES.get(product["slug"], {})
+    for f, colour in pinned.items():
+        if f in out and colour in names:
+            out[f] = colour
+    return out
 
 
 def main():

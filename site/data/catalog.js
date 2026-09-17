@@ -958,16 +958,14 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
     "imageColors": {
-      "01.jpg": "Sand",
-      "02.jpg": "Gray",
-      "03.jpg": "Gray",
+      "01.jpg": "Gray",
+      "02.jpg": "Sand",
+      "03.jpg": "White",
       "04.jpg": "Black",
-      "05.jpg": "White",
-      "06.jpg": "White"
+      "05.jpg": "Black"
     },
     "hasOptions": true
   },
