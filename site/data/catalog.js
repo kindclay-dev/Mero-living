@@ -28,8 +28,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -49,8 +48,7 @@ window.MERO_CATALOG = [
     "details": "Cushions are designed to weather the elements and resist stains, spills, fading and mild dew. Zippers resist corrosion. Our custom-fit outdoor covers (sold separately) are strongly recommended to protect furniture from the elements and minimize aging. Features : Used Indoor/ Outdoor No Drainage Hole Hand Made UV Resistant Weather Resistant UV Resistant",
     "url": "product.html?p=deco-chair",
     "images": [
-      "01.jpg",
-      "02.jpg"
+      "01.jpg"
     ],
     "hasOptions": false
   },
@@ -96,8 +94,7 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -136,8 +133,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -159,8 +155,7 @@ window.MERO_CATALOG = [
     "details": "Our classic series with its curves and flawlessly smooth coating with a touch of Modernity. These planters signify a subtle but bold statement adding a touch of elegance to any space. Hand-finished to the highest quality. Features : Used Indoor/ Outdoor Drainage Hole Hand Made Weather Resistant UV Resistant",
     "url": "product.html?p=flora-with-stand",
     "images": [
-      "01.jpg",
-      "02.jpg"
+      "01.jpg"
     ],
     "hasOptions": true
   },
@@ -189,8 +184,7 @@ window.MERO_CATALOG = [
     "url": "product.html?p=kaman",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "02.jpg"
     ],
     "hasOptions": true
   },
@@ -224,8 +218,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -264,8 +257,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -305,8 +297,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -341,8 +332,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -377,8 +367,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -411,8 +400,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -455,8 +443,7 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -501,8 +488,7 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -547,8 +533,7 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -625,8 +610,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -660,8 +644,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -701,8 +684,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -742,8 +724,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -783,8 +764,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -819,8 +799,7 @@ window.MERO_CATALOG = [
     "url": "product.html?p=tura-table",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "02.jpg"
     ],
     "hasOptions": true
   },
@@ -897,8 +876,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -931,8 +909,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -960,8 +937,7 @@ window.MERO_CATALOG = [
     "url": "product.html?p=veeru-b",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "02.jpg"
     ],
     "hasOptions": true
   },
@@ -1000,8 +976,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -1036,8 +1011,7 @@ window.MERO_CATALOG = [
     "url": "product.html?p=willow-table",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "02.jpg"
     ],
     "hasOptions": true
   }
