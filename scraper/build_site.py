@@ -40,6 +40,8 @@ try:
 except ImportError:
     sys.exit("Pillow is required: pip install -r requirements.txt")
 
+from detect_colors import colours_for
+
 DEFAULT_FEED = "https://meroliving.com/products.json?limit=250"
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
 
@@ -152,6 +154,7 @@ def build_product(product):
         "details": strip_html(product.get("body_html")),
         "url": f"product.html?p={product['handle']}",
         "images": [],
+        "imageColors": {},
         "hasOptions": bool(option_names and option_names != ["title"]),
     }
 
@@ -301,6 +304,10 @@ def main():
     empty = [p["slug"] for p in products if not p["images"]]
     if empty:
         print(f"  ! no photos for: {', '.join(empty)}")
+
+    # Which colourway each photo shows, so the swatches can drive the gallery.
+    for product in products:
+        product["imageColors"] = colours_for(product, products_dir)
 
     # Products with photography first, so the grid never opens on a gap.
     products.sort(key=lambda p: (not p["images"], p["title"].lower()))

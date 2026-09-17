@@ -94,6 +94,32 @@ exactly the stage height at any viewport — 116px on a 1440 screen, as the
 design has it. A product with more photos scrolls the rail; it never shows a
 part-cropped fifth.
 
+## Colour swatches
+
+Clicking a swatch on a product page opens that colourway's photograph, and
+stepping the gallery moves the swatch back in step.
+
+The photos arrive unlabelled, so `scraper/detect_colors.py` works the colour
+out from the pixels and the build writes it into `catalog.js` as
+`imageColors` — `{"01.jpg": "White", "03.jpg": "Black", …}`.
+
+Matching a photo to a swatch value directly does not work. The warm studio
+light lifts a black planter to about 80 luminance, nowhere near `#0a0909`, and
+some colourways separate only by hue — Neto's grey and terracotta are one
+luminance point apart. So the detector white-balances each photo against the
+wall behind it, clusters a product's photos by colour, and matches the
+clusters to that product's catalogue colours by rank, darkest to darkest, with
+hue breaking ties. Everything is relative to the product's own set, which is
+what survives the lighting.
+
+Blacks and the saturated colourways are reliable. Pale neutrals — white
+against sand against stone — are the hard case and do get swapped
+occasionally; check `python3 scraper/detect_colors.py`, which prints the
+mapping, if a swatch opens the wrong frame.
+
+A colour the shoot never covered is dimmed and leaves the stage alone when
+clicked, rather than pretending to work.
+
 ## Catalogue fields
 
 Each entry in `catalog.js` carries `slug, title, price, priceRange, sku,
