@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MERO</title>
+<meta name="description" content="Handmade fiberglass planters and outdoor furniture from MERO.">
+<link rel="preload" href="assets/fonts/jost-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="announce">
+  SAVE 15% OFF FIRST ORDER.*USE CODE :HELLO15 <a href="index.html">SHOP NOW</a>
+</div>
+
+<header class="shell">
+  <div class="masthead">
+    <button class="icon-btn icon-left" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+    </button>
+    <a class="logo" href="index.html" aria-label="MERO home">
+      <img src="assets/mero-logo.png" alt="MERO">
+    </a>
+    <button class="icon-btn icon-right" aria-label="Cart">
+      <svg viewBox="0 0 24 24"><path d="M6 8h12l1.2 11.5H4.8L6 8Z"/><path d="M9 8V6.2A3 3 0 0 1 15 6.2V8"/></svg>
+    </button>
+  </div>
+  <nav class="nav">
+    <a href="index.html?c=outdoor" data-cat="outdoor">OUTDOOR</a>
+    <a href="index.html?c=lighting" data-cat="lighting">LIGHTING</a>
+    <a href="index.html?c=furniture" data-cat="furniture">FURNITURE</a>
+    <a href="index.html?c=decor" data-cat="decor">DECOR</a>
+    <a href="index.html?c=sale" data-cat="sale">SALE</a>
+  </nav>
+</header>
+
+<main class="shell">
+  <div class="product">
+
+    <!-- ============ left column ============ -->
+    <section class="info-col">
+      <div class="title-row">
+        <h1 class="product-title" id="p-title"></h1>
+        <button class="wish-plain" id="wish-top" aria-label="Add to wishlist" aria-pressed="false">
+          <svg viewBox="0 0 24 24"><path d="M12 20.3 4.6 13a4.4 4.4 0 0 1 6.2-6.2l1.2 1.2 1.2-1.2A4.4 4.4 0 1 1 19.4 13Z"/></svg>
+        </button>
+      </div>
+
+      <div class="price-row">
+        <p class="price" id="p-price"></p>
+        <span class="sku" id="p-sku"></span>
+      </div>
+
+      <div class="swatches" id="p-swatches" role="group" aria-label="Colour"></div>
+      <div class="sizes" id="p-sizes" role="group" aria-label="Size"></div>
+
+      <div class="installments">
+        <span class="label">Buy on installments</span>
+        <div class="banks">
+          <span class="bank"><img src="assets/hbl.png" alt="HBL"><span class="info" title="HBL installment plans">i</span></span>
+          <span class="bank"><img class="alfalah" src="assets/alfalah.png" alt="Bank Alfalah"><span class="info" title="Bank Alfalah installment plans">i</span></span>
+        </div>
+      </div>
+
+      <div class="buy-row">
+        <div class="qty">
+          <button type="button" id="qty-down" aria-label="Decrease quantity">&minus;</button>
+          <label class="sr-only" for="qty">Quantity</label>
+          <input id="qty" type="number" inputmode="numeric" min="1" value="1">
+          <button type="button" id="qty-up" aria-label="Increase quantity">+</button>
+        </div>
+        <div class="line-price">
+          <div class="amount" id="p-line-price"></div>
+          <div class="each">each</div>
+        </div>
+      </div>
+
+      <div class="cart-row">
+        <button class="add-to-cart" id="add-to-cart">ADD TO CART</button>
+        <button class="wish-box" id="wish-box" aria-label="Add to wishlist" aria-pressed="false">
+          <svg viewBox="0 0 24 24"><path d="M12 20.3 4.6 13a4.4 4.4 0 0 1 6.2-6.2l1.2 1.2 1.2-1.2A4.4 4.4 0 1 1 19.4 13Z"/></svg>
+        </button>
+      </div>
+
+      <div class="details">
+        <h2>Details</h2>
+        <p id="p-details"></p>
+      </div>
+    </section>
+
+    <!-- ============ gallery ============ -->
+    <section class="gallery" aria-label="Product images">
+      <div class="stage" id="stage">
+        <div class="stage-caption" id="stage-caption">
+          <span class="name" id="caption-name"></span>
+          <span class="sub" id="caption-sub">series</span>
+        </div>
+        <button class="stage-nav prev" id="slide-prev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg>
+        </button>
+        <button class="stage-nav next" id="slide-next" aria-label="Next image">
+          <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="rail-cell"><div class="rail">
+        <div class="thumbs" id="thumbs"></div>
+        <label class="upload">
+          <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3h16v-3"/></svg>
+          Add photo
+          <input type="file" id="upload-input" accept="image/*" multiple>
+        </label>
+      </div></div>
+    </section>
+
+  </div>
+
+  <nav class="pager" id="pager"></nav>
+</main>
+
+<script src="data/catalog.js"></script>
+<script src="assets/uploads.js"></script>
+<script>
+/* ------------------------------------------------------------------
+   The page renders whichever product ?p= names, from the generated
+   catalogue. Photos dropped in the browser are merged in on top.
+------------------------------------------------------------------ */
+const CATALOG = window.MERO_CATALOG || [];
+
+/* Autoplay cycles this product's own photos; the grid is how you move
+   between products. Set to false to leave the gallery fully manual. */
+const AUTOPLAY = true;
+const SLIDE_MS = 4000;
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const els = {
+  title: document.getElementById("p-title"),
+  price: document.getElementById("p-price"),
+  linePrice: document.getElementById("p-line-price"),
+  sku: document.getElementById("p-sku"),
+  swatches: document.getElementById("p-swatches"),
+  sizes: document.getElementById("p-sizes"),
+  details: document.getElementById("p-details"),
+  stage: document.getElementById("stage"),
+  caption: document.getElementById("stage-caption"),
+  captionName: document.getElementById("caption-name"),
+  captionSub: document.getElementById("caption-sub"),
+  thumbs: document.getElementById("thumbs"),
+  qty: document.getElementById("qty"),
+  upload: document.getElementById("upload-input"),
+  pager: document.getElementById("pager")
+};
+
+const params = new URLSearchParams(location.search);
+let index = CATALOG.findIndex(p => p.slug === params.get("p"));
+if (index < 0) index = 0;
+
+let product = CATALOG[index] || null;
+let photos = [];                 // {src, alt, uploaded?} for the product on screen
+let slideIndex = 0;
+let timer = null;
+let autoplay = AUTOPLAY && !REDUCED_MOTION;
+const objectUrls = [];
+
+const money = n => "PKR " + Number(n).toLocaleString("en-US");
+
+/* ---------- rendering ---------- */
+
+function catalogPhotos(p) {
+  return (p.images || []).map(file => ({
+    src: `assets/products/${p.slug}/${file}`,
+    alt: p.title
+  }));
+}
+
+function renderProduct() {
+  if (!product) {
+    els.title.textContent = "Product not found";
+    els.details.textContent = "That product is not in the catalogue.";
+    return;
+  }
+
+  document.title = `${product.title} — MERO`;
+  els.title.textContent = product.title;
+  els.price.textContent = product.priceRange || product.priceLabel;
+  els.sku.textContent = product.sku ? "SKU:" + product.sku : "";
+  els.details.textContent = product.details;
+  // the lockup only belongs on products shot with room for type
+  els.caption.hidden = !product.lockup;
+  els.captionName.textContent = product.captionName || product.title;
+  els.captionSub.textContent = product.captionSub || "";
+  els.captionSub.hidden = !product.captionSub;
+  fitLockup();
+
+  els.swatches.innerHTML = "";
+  (product.colors || []).forEach((c, i) => {
+    const b = document.createElement("button");
+    b.className = "swatch";
+    b.style.background = c.hex;
+    if (c.tone === "light") b.dataset.tone = "white";
+    b.setAttribute("aria-label", c.name);
+    b.setAttribute("aria-pressed", String(i === 0));
+    b.addEventListener("click", () => {
+      [...els.swatches.children].forEach(s =>
+        s.setAttribute("aria-pressed", String(s === b)));
+    });
+    els.swatches.appendChild(b);
+  });
+
+  els.sizes.innerHTML = "";
+  (product.sizes || []).forEach((size, i) => {
+    const b = document.createElement("button");
+    b.textContent = size;
+    b.setAttribute("aria-pressed", String(i === 0));
+    b.addEventListener("click", () => {
+      [...els.sizes.children].forEach(s =>
+        s.setAttribute("aria-pressed", String(s === b)));
+    });
+    els.sizes.appendChild(b);
+  });
+
+  renderPager();
+  updateLinePrice();
+}
+
+/* Keep a long product name inside the stage rather than letting it bleed. */
+function fitLockup() {
+  if (!product || !product.lockup) return;
+  els.caption.style.removeProperty("--lockup");
+  requestAnimationFrame(() => {
+    const room = els.stage.clientWidth * 0.78;
+    const width = els.captionName.getBoundingClientRect().width;
+    if (width > room && width > 0) {
+      const base = parseFloat(getComputedStyle(els.captionName).fontSize);
+      els.caption.style.setProperty("--lockup", `${Math.floor(base * room / width)}px`);
+    }
+  });
+}
+
+window.addEventListener("resize", fitLockup);
+
+function renderImages() {
+  els.stage.querySelectorAll("img").forEach(img => img.remove());
+  const frag = document.createDocumentFragment();
+  photos.forEach((im, i) => {
+    const img = document.createElement("img");
+    img.src = im.src;
+    img.alt = im.alt || (product ? product.title : "");
+    img.loading = i === 0 ? "eager" : "lazy";
+    frag.appendChild(img);
+  });
+  els.stage.insertBefore(frag, els.stage.firstChild);   // caption stays on top
+
+  els.thumbs.innerHTML = "";
+  photos.forEach((im, i) => {
+    const b = document.createElement("button");
+    b.className = "thumb";
+    b.innerHTML = `<img src="${im.src}" alt="">`;
+    b.setAttribute("aria-label", `View image ${i + 1}`);
+    b.addEventListener("click", () => { stopAuto(); showSlide(i); });
+    els.thumbs.appendChild(b);
+  });
+
+  showSlide(Math.min(slideIndex, Math.max(photos.length - 1, 0)));
+}
+
+function showSlide(i) {
+  const imgs = els.stage.querySelectorAll("img");
+  if (!imgs.length) { els.caption.style.opacity = "0"; return; }
+  slideIndex = (i + imgs.length) % imgs.length;
+  imgs.forEach((img, n) => img.classList.toggle("is-active", n === slideIndex));
+  [...els.thumbs.children].forEach((t, n) =>
+    t.setAttribute("aria-current", String(n === slideIndex)));
+  // within a product, the lockup belongs to the opening shot only
+  els.caption.style.opacity = slideIndex === 0 ? "1" : "0";
+}
+
+function updateLinePrice() {
+  const n = Math.max(1, parseInt(els.qty.value, 10) || 1);
+  els.qty.value = n;
+  els.linePrice.textContent = product ? money(product.price * n) : "";
+  document.getElementById("qty-down").disabled = n <= 1;
+}
+
+function renderPager() {
+  const prev = CATALOG[index - 1];
+  const next = CATALOG[index + 1];
+  els.pager.innerHTML = `
+    ${prev ? `<a href="product.html?p=${encodeURIComponent(prev.slug)}">&larr; ${prev.title}</a>` : "<span></span>"}
+    <span class="spacer"></span>
+    <a href="index.html">All products</a>
+    <span class="spacer"></span>
+    ${next ? `<a href="product.html?p=${encodeURIComponent(next.slug)}">${next.title} &rarr;</a>` : "<span></span>"}`;
+}
+
+/* ---------- slider ---------- */
+
+function nextSlide() { showSlide(slideIndex + 1); }
+function prevSlide() { showSlide(slideIndex - 1); }
+
+function startAuto() {
+  if (!autoplay || timer || photos.length < 2) return;
+  timer = setInterval(nextSlide, SLIDE_MS);
+}
+function stopAuto() {
+  autoplay = false;
+  clearInterval(timer);
+  timer = null;
+}
+
+/* ---------- photos added in the browser ---------- */
+
+async function loadPhotos() {
+  photos = product ? catalogPhotos(product) : [];
+  if (product) {
+    try {
+      const dropped = await MeroUploads.get(product.slug);
+      dropped.forEach(p => objectUrls.push(p.src));
+      photos = photos.concat(dropped);
+    } catch (err) { /* no IndexedDB: fall back to the built-in photos */ }
+  }
+  renderImages();
+  startAuto();
+}
+
+els.upload.addEventListener("change", async e => {
+  const files = [...e.target.files].filter(MeroUploads.isImage);
+  e.target.value = "";
+  if (!files.length || !product) return;
+  try {
+    await MeroUploads.put(product.slug, files);
+    const before = photos.length;
+    await loadPhotos();
+    stopAuto();
+    showSlide(before);
+  } catch (err) {
+    // storage unavailable — still show them for this session
+    files.forEach(f => {
+      const url = URL.createObjectURL(f);
+      objectUrls.push(url);
+      photos.push({ src: url, alt: f.name, uploaded: true });
+    });
+    stopAuto();
+    renderImages();
+    showSlide(photos.length - files.length);
+  }
+});
+
+window.addEventListener("beforeunload", () => objectUrls.forEach(URL.revokeObjectURL));
+
+/* ---------- wiring ---------- */
+
+document.getElementById("slide-next").addEventListener("click", () => { stopAuto(); nextSlide(); });
+document.getElementById("slide-prev").addEventListener("click", () => { stopAuto(); prevSlide(); });
+
+document.getElementById("qty-up").addEventListener("click", () => {
+  els.qty.value = (parseInt(els.qty.value, 10) || 1) + 1;
+  updateLinePrice();
+});
+document.getElementById("qty-down").addEventListener("click", () => {
+  els.qty.value = Math.max(1, (parseInt(els.qty.value, 10) || 1) - 1);
+  updateLinePrice();
+});
+els.qty.addEventListener("input", updateLinePrice);
+
+["wish-top", "wish-box"].forEach(id => {
+  const b = document.getElementById(id);
+  b.addEventListener("click", () => {
+    const on = b.getAttribute("aria-pressed") !== "true";
+    b.setAttribute("aria-pressed", String(on));
+    b.classList.toggle("is-on", on);
+  });
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") { stopAuto(); nextSlide(); }
+  if (e.key === "ArrowLeft")  { stopAuto(); prevSlide(); }
+});
+
+// hovering the stage holds the current photo without cancelling autoplay
+els.stage.addEventListener("mouseenter", () => {
+  if (timer) { clearInterval(timer); timer = null; }
+});
+els.stage.addEventListener("mouseleave", startAuto);
+
+[...document.querySelectorAll(".nav a")].forEach(a =>
+  a.classList.toggle("is-active", product && a.dataset.cat === product.category));
+
+renderProduct();
+loadPhotos();
+</script>
+</body>
+</html>

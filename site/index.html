@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop All — MERO</title>
+<meta name="description" content="The full MERO collection — fiberglass planters and outdoor furniture, handmade for indoors and out.">
+<link rel="preload" href="assets/fonts/jost-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="announce">
+  SAVE 15% OFF FIRST ORDER.*USE CODE :HELLO15 <a href="#shop">SHOP NOW</a>
+</div>
+
+<header class="shell">
+  <div class="masthead">
+    <button class="icon-btn icon-left" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+    </button>
+    <a class="logo" href="index.html" aria-label="MERO home">
+      <img src="assets/mero-logo.png" alt="MERO">
+    </a>
+    <button class="icon-btn icon-right" aria-label="Cart">
+      <svg viewBox="0 0 24 24"><path d="M6 8h12l1.2 11.5H4.8L6 8Z"/><path d="M9 8V6.2A3 3 0 0 1 15 6.2V8"/></svg>
+    </button>
+  </div>
+  <nav class="nav">
+    <a href="?c=outdoor" data-cat="outdoor">OUTDOOR</a>
+    <a href="?c=lighting" data-cat="lighting">LIGHTING</a>
+    <a href="?c=furniture" data-cat="furniture">FURNITURE</a>
+    <a href="?c=decor" data-cat="decor">DECOR</a>
+    <a href="?c=sale" data-cat="sale">SALE</a>
+  </nav>
+</header>
+
+<main class="shell" id="shop">
+  <section class="catalogue">
+    <div class="catalogue-head">
+      <h1 class="catalogue-title" id="cat-title">Shop All</h1>
+      <span class="catalogue-count" id="cat-count"></span>
+    </div>
+
+    <div class="dropzone" id="dropzone">
+      <p>
+        <b>Add photography</b><br>
+        Drop a folder of product sub-folders here &mdash; <code>mavi/</code>,
+        <code>reewa/</code> &mdash; and each set lands on its product.
+        Photos stay in this browser.
+      </p>
+      <div class="dropzone-actions">
+        <label class="btn-line">
+          Choose folder
+          <input type="file" id="folder-input" webkitdirectory directory multiple>
+        </label>
+        <button class="btn-quiet" id="clear-uploads" hidden>Clear uploads</button>
+      </div>
+    </div>
+
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<script src="data/catalog.js"></script>
+<script src="assets/uploads.js"></script>
+<script>
+const CATALOG = window.MERO_CATALOG || [];
+const SLUGS = CATALOG.map(p => p.slug);
+
+const CATEGORIES = [
+  { id: "all",       label: "Shop All",  match: () => true },
+  { id: "outdoor",   label: "Outdoor",   match: p => p.category === "outdoor" },
+  { id: "furniture", label: "Furniture", match: p => p.category === "furniture" },
+  { id: "lighting",  label: "Lighting",  match: () => false },
+  { id: "decor",     label: "Decor",     match: () => false },
+  { id: "sale",      label: "Sale",      match: () => false }
+];
+
+const els = {
+  grid: document.getElementById("grid"),
+  filters: document.getElementById("filters"),
+  title: document.getElementById("cat-title"),
+  count: document.getElementById("cat-count"),
+  dropzone: document.getElementById("dropzone"),
+  folderInput: document.getElementById("folder-input"),
+  clear: document.getElementById("clear-uploads")
+};
+
+let category = new URLSearchParams(location.search).get("c") || "all";
+if (!CATEGORIES.some(c => c.id === category)) category = "all";
+
+let uploadCovers = {};   // slug -> object URL of a dropped photo
+let uploadCounts = {};   // slug -> how many were dropped
+
+function photoSrc(product, index) {
+  const file = product.images[index];
+  return file ? `assets/products/${product.slug}/${file}` : null;
+}
+
+function cover(product) {
+  return uploadCovers[product.slug] || photoSrc(product, 0);
+}
+
+function card(product) {
+  const a = document.createElement("a");
+  a.className = "card";
+  a.href = `product.html?p=${encodeURIComponent(product.slug)}`;
+
+  const main = cover(product);
+  const alt = photoSrc(product, 1);
+  const uploaded = uploadCounts[product.slug];
+
+  a.innerHTML = `
+    <div class="card-media">
+      ${main ? `<img src="${main}" alt="${product.title}" loading="lazy">` : ""}
+      ${alt && !uploadCovers[product.slug]
+          ? `<img class="alt" src="${alt}" alt="" loading="lazy">` : ""}
+      ${uploaded ? `<span class="card-tag">${uploaded} added</span>` : ""}
+    </div>
+    <div class="card-body">
+      <div class="card-name">${product.title}</div>
+      <div class="card-price">${product.priceRange || product.priceLabel}</div>
+      <div class="card-colors">
+        ${product.colors.map(c =>
+          `<span style="background:${c.hex}" title="${c.name}"></span>`).join("")}
+      </div>
+    </div>`;
+  return a;
+}
+
+function renderFilters() {
+  els.filters.innerHTML = "";
+  CATEGORIES.forEach(c => {
+    const count = CATALOG.filter(c.match).length;
+    if (!count && c.id !== category) return;      // hide empty shelves
+    const b = document.createElement("button");
+    b.textContent = c.label;
+    b.setAttribute("aria-pressed", String(c.id === category));
+    b.addEventListener("click", () => {
+      category = c.id;
+      history.replaceState(null, "",
+        c.id === "all" ? location.pathname : `?c=${c.id}`);
+      render();
+    });
+    els.filters.appendChild(b);
+  });
+}
+
+function render() {
+  const def = CATEGORIES.find(c => c.id === category);
+  const items = CATALOG.filter(def.match);
+
+  els.title.textContent = def.label;
+  els.count.textContent = items.length
+    ? `${items.length} piece${items.length === 1 ? "" : "s"}` : "";
+  document.title = `${def.label} — MERO`;
+
+  els.grid.innerHTML = "";
+  if (!items.length) {
+    els.grid.innerHTML =
+      `<p class="empty">No pieces in ${def.label} yet.</p>`;
+  } else {
+    const frag = document.createDocumentFragment();
+    items.forEach(p => frag.appendChild(card(p)));
+    els.grid.appendChild(frag);
+  }
+
+  [...document.querySelectorAll(".nav a")].forEach(a =>
+    a.classList.toggle("is-active", a.dataset.cat === category));
+  renderFilters();
+  els.clear.hidden = !Object.keys(uploadCounts).length;
+}
+
+/* ---------- dropped folders ---------- */
+
+async function refreshUploads() {
+  try {
+    uploadCounts = await MeroUploads.counts();
+    uploadCovers = await MeroUploads.covers();
+  } catch (err) {
+    uploadCounts = {};
+    uploadCovers = {};
+  }
+}
+
+async function ingest(files) {
+  const { matched, skipped } = MeroUploads.group(files, SLUGS);
+  const slugs = Object.keys(matched);
+  if (!slugs.length) {
+    alert(skipped.length
+      ? `No folder matched a product. Name each sub-folder after its product, e.g. "mavi".\n\nSkipped: ${skipped.join(", ")}`
+      : "No images found in that folder.");
+    return;
+  }
+  for (const slug of slugs) await MeroUploads.put(slug, matched[slug]);
+  await refreshUploads();
+  render();
+
+  const added = slugs.reduce((n, s) => n + matched[s].length, 0);
+  let message = `Added ${added} photo${added === 1 ? "" : "s"} across ${slugs.length} product${slugs.length === 1 ? "" : "s"}.`;
+  if (skipped.length) message += `\n\nNo product matched: ${skipped.join(", ")}`;
+  alert(message);
+}
+
+els.folderInput.addEventListener("change", e => {
+  // copy before resetting: clearing the input empties the live FileList
+  const files = [...e.target.files];
+  e.target.value = "";
+  if (files.length) ingest(files);
+});
+
+["dragenter", "dragover"].forEach(type =>
+  els.dropzone.addEventListener(type, e => {
+    e.preventDefault();
+    els.dropzone.classList.add("is-over");
+  }));
+["dragleave", "drop"].forEach(type =>
+  els.dropzone.addEventListener(type, () => els.dropzone.classList.remove("is-over")));
+
+els.dropzone.addEventListener("drop", async e => {
+  e.preventDefault();
+  const files = await MeroUploads.readDrop(e.dataTransfer);
+  if (files.length) ingest(files);
+});
+
+els.clear.addEventListener("click", async () => {
+  if (!confirm("Remove every photo added in this browser?")) return;
+  await MeroUploads.clear();
+  await refreshUploads();
+  render();
+});
+
+/* ---------- go ---------- */
+
+render();
+refreshUploads().then(render);
+</script>
+</body>
+</html>

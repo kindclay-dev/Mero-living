@@ -1,4 +1,15 @@
-# Mero Living Product Scraper
+# Mero Living
+
+A storefront built from the live meroliving.com catalogue.
+
+- **`site/`** — the storefront: a product grid and a dynamic product page.
+  See [site/README.md](site/README.md).
+- **`scraper/build_site.py`** — builds `site/data/catalog.js` and the product
+  photography from the feed plus a folder of photos.
+- **`photos/`** — curated shots that lead a product's gallery.
+- **`scraper/scrape_products.py`** — the original catalogue scrape, below.
+
+## Product scraper
 
 Scrapes [meroliving.com/products/](https://meroliving.com/products/) for the full
 catalog: product name, one photo, price range, and colour variations.
