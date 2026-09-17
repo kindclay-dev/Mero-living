@@ -63,14 +63,20 @@ make photos permanent, put them in `photos/<slug>/` and rebuild.
 
 ## Type
 
-Futura is the storefront's face. The pages ask for Futura first and fall back
-to **Jost**, the closest open-source match, bundled as woff2 so the design
-holds without Futura installed and without a Google Fonts request. The italic
-`series` in the Mavi lockup is **Cormorant Garamond**.
+Three faces, all self-hosted as woff2 — no Google Fonts request, and the
+design holds offline.
 
-Sizes and tracking were calibrated against the original design PDF: every
-landmark lands within ~3px at a 1440px viewport, and the justified DETAILS
-copy breaks on the same words.
+- **Outfit** (`--display`) sets the nav in regular and the product titles in
+  light, both tracked at 10%. "Product title" covers the product page's
+  heading and the grid card name — the same line in both places.
+- **Jost** (`--sans`) carries everything else. It stands in for Futura, the
+  storefront's face, which the pages ask for first.
+- **Cormorant Garamond** italic sets the `series` in the Mavi lockup.
+
+Body sizes and tracking were calibrated against the original design PDF: the
+landmarks land within ~3px at a 1440px viewport and the justified DETAILS copy
+breaks on the same words. The titles and nav now follow the Outfit spec
+instead, so those two deliberately depart from the PDF.
 
 ## Catalogue fields
 
