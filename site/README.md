@@ -4,13 +4,13 @@ Two pages sharing one design system and one generated catalogue.
 
 ```
 site/
-├── index.html          grid of every product, with the folder drop
+├── index.html          grid of every product
 ├── product.html        a product page, chosen by ?p=<slug>
 ├── data/catalog.js     generated — window.MERO_CATALOG
 └── assets/
     ├── site.css        the whole design system, both pages
     ├── products/<slug>/NN.jpg
-    ├── fonts/          Jost and Cormorant Garamond
+    ├── fonts/          Outfit and Cormorant Garamond
     └── *.png           MERO wordmark, HBL and Bank Alfalah lockups
 ```
 
