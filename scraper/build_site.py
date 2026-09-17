@@ -17,9 +17,12 @@ Sub-folder names are matched to product handles, so a leading index like
 catalog.js is JavaScript rather than JSON on purpose: the pages then work
 when opened straight off disk, where fetch() of a local file is blocked.
 
+Without --photos it refreshes catalog.js from the feed and leaves the built
+photos alone; pass --photos to rebuild them from a source.
+
 Usage:
-    python3 scraper/build_site.py
-    python3 scraper/build_site.py --photos ~/Downloads/new-shoot
+    python3 scraper/build_site.py                          # metadata only
+    python3 scraper/build_site.py --photos ~/new-shoot     # and the photos
 """
 
 import argparse
@@ -228,8 +231,11 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--feed", default=DEFAULT_FEED,
                     help="products.json URL or local path")
-    ap.add_argument("--photos", default=str(repo / "output" / "product_photos.zip"),
-                    help="folder or zip with one sub-folder per product")
+    ap.add_argument("--photos", default=None,
+                    help="folder or zip with one sub-folder per product. "
+                         "Omit it and the photos already built stay as they "
+                         "are — the masters live outside the repo, so a bare "
+                         "run must not be able to overwrite them.")
     ap.add_argument("--extra-photos", default=str(repo / "photos"),
                     help="curated photos that lead the gallery, same layout; "
                          "drop a folder here to override the scraped set")
@@ -248,7 +254,7 @@ def main():
     by_slug = {p["slug"]: p for p in products}
     print(f"  {len(products)} products")
 
-    if args.skip_images:
+    if args.skip_images or not args.photos:
         for product in products:
             folder = products_dir / product["slug"]
             product["images"] = sorted(p.name for p in folder.glob("*.jpg")) \

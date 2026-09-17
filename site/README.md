@@ -26,10 +26,14 @@ off disk — `fetch()` of a local file is blocked on `file://`.
 ## Rebuilding the catalogue
 
 ```bash
-python3 scraper/build_site.py                      # feed + output/product_photos.zip
-python3 scraper/build_site.py --photos ~/new-shoot # a folder of product sub-folders
-python3 scraper/build_site.py --skip-images        # metadata only, leave photos alone
+python3 scraper/build_site.py                      # metadata only; photos untouched
+python3 scraper/build_site.py --photos ~/new-shoot # also rebuild the photos
 ```
+
+A bare run refreshes `catalog.js` from the feed and leaves the built photos
+alone. Rebuilding photography needs an explicit `--photos`, because the
+masters live outside the repo and a bare run must not be able to overwrite
+them.
 
 The script reads product metadata from the store's `/products.json` feed and
 photography from any folder (or zip) laid out one sub-folder per product:
@@ -46,8 +50,10 @@ JPEG. Anything that doesn't match a product is reported rather than dropped
 silently.
 
 `photos/` in the repo root is a curated override: whatever sits there leads a
-product's gallery, ahead of the bulk set. That's how Mavi keeps the styled
-hero shots its page was designed around.
+product's gallery, ahead of whatever `--photos` supplies. It currently holds
+the five Mavi shots taken from the design PDF, which the September shoot has
+since superseded — so if you pass `--photos` again, Mavi will lead with those
+older frames unless you clear the folder first.
 
 Adding photography is a build step — there is no upload control on the site.
 Put images in `photos/<slug>/` (or point `--photos` at a folder) and rebuild.
