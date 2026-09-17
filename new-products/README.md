@@ -4,6 +4,9 @@ Put a zip (or loose image files) in this folder, then tell me to update and
 I'll unpack it, work out which products the photos belong to, and rebuild the
 site.
 
+Originals are **not** kept in the repo — they are processed into
+`site/assets/products/` and then cleared from here, so keep your own copy.
+
 ```
 new-products/
   planters.zip

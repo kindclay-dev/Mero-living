@@ -186,12 +186,17 @@ function renderProduct() {
     const b = document.createElement("button");
     b.className = "swatch";
     b.style.background = c.hex;
+    b.dataset.color = c.name;
     if (c.tone === "light") b.dataset.tone = "white";
     b.setAttribute("aria-label", c.name);
     b.setAttribute("aria-pressed", String(i === 0));
+    // a colour the shoot didn't cover stays selectable, but says so.
+    // -1 means absent; 0 is a real slide, so compare explicitly.
+    if (firstSlideOf(c.name) < 0) b.dataset.noPhoto = "true";
     b.addEventListener("click", () => {
-      [...els.swatches.children].forEach(s =>
-        s.setAttribute("aria-pressed", String(s === b)));
+      selectColor(c.name);
+      const slide = firstSlideOf(c.name);
+      if (slide >= 0) { stopAuto(); showSlide(slide); }
     });
     els.swatches.appendChild(b);
   });
@@ -253,6 +258,25 @@ function renderImages() {
   showSlide(Math.min(slideIndex, Math.max(photos.length - 1, 0)));
 }
 
+/* Which colourway each photo shows, worked out at build time. */
+function colorOf(i) {
+  const file = product && product.images ? product.images[i] : null;
+  return (product && product.imageColors && file)
+    ? product.imageColors[file] || null : null;
+}
+
+/* First photo showing a colour, or -1 if the shoot didn't cover it. */
+function firstSlideOf(name) {
+  if (!product || !product.images) return -1;
+  return product.images.findIndex(f =>
+    (product.imageColors || {})[f] === name);
+}
+
+function selectColor(name) {
+  [...els.swatches.children].forEach(s =>
+    s.setAttribute("aria-pressed", String(s.dataset.color === name)));
+}
+
 function showSlide(i) {
   const imgs = els.stage.querySelectorAll("img");
   if (!imgs.length) { els.caption.style.opacity = "0"; return; }
@@ -260,6 +284,9 @@ function showSlide(i) {
   imgs.forEach((img, n) => img.classList.toggle("is-active", n === slideIndex));
   [...els.thumbs.children].forEach((t, n) =>
     t.setAttribute("aria-current", String(n === slideIndex)));
+  // keep the swatch in step with whatever is on the stage
+  const shown = colorOf(slideIndex);
+  if (shown) selectColor(shown);
   // within a product, the lockup belongs to the opening shot only
   els.caption.style.opacity = slideIndex === 0 ? "1" : "0";
 }

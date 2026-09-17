@@ -126,6 +126,9 @@ a{color:inherit;text-decoration:none}
   box-shadow:inset 0 0 0 2px #fff, inset 0 0 0 3px rgba(0,0,0,.25);
 }
 .swatch:focus-visible{outline:1px solid #8a8a8a;outline-offset:4px}
+/* no photograph of this colourway, so clicking it cannot change the stage */
+.swatch[data-no-photo]{opacity:.45}
+.swatch[data-no-photo]:hover{opacity:.7}
 
 .installments{margin-top:39px}
 .label{

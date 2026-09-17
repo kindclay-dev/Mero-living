@@ -17,9 +17,12 @@ Sub-folder names are matched to product handles, so a leading index like
 catalog.js is JavaScript rather than JSON on purpose: the pages then work
 when opened straight off disk, where fetch() of a local file is blocked.
 
+Without --photos it refreshes catalog.js from the feed and leaves the built
+photos alone; pass --photos to rebuild them from a source.
+
 Usage:
-    python3 scraper/build_site.py
-    python3 scraper/build_site.py --photos ~/Downloads/new-shoot
+    python3 scraper/build_site.py                          # metadata only
+    python3 scraper/build_site.py --photos ~/new-shoot     # and the photos
 """
 
 import argparse
@@ -36,6 +39,8 @@ try:
     from PIL import Image
 except ImportError:
     sys.exit("Pillow is required: pip install -r requirements.txt")
+
+from detect_colors import colours_for
 
 DEFAULT_FEED = "https://meroliving.com/products.json?limit=250"
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
@@ -60,6 +65,12 @@ LIGHT_SWATCHES = {"white", "sand", "stone", "concrete", "sky blue"}
 # product_type, but the furniture is tagged 'home' — matching on words like
 # "table" would wrongly sweep in the Varsha table-top planter and Flora's stand.
 FURNITURE_TAG = "home"
+
+# Photo folders whose name cannot be reached from the product handle by
+# slugifying and prefix-matching alone.
+FOLDER_ALIASES = {
+    "earthern": "earthen-collection",   # misspelt "Earthen"
+}
 
 # Products whose opening shot is a styled hero, so the name/"series" lockup
 # sits over it the way the Mavi design does. Add a slug here once a product
@@ -143,6 +154,7 @@ def build_product(product):
         "details": strip_html(product.get("body_html")),
         "url": f"product.html?p={product['handle']}",
         "images": [],
+        "imageColors": {},
         "hasOptions": bool(option_names and option_names != ["title"]),
     }
 
@@ -180,6 +192,9 @@ def match_product(name, by_slug):
     slug = folder_slug(name)
     if slug in by_slug:
         return slug
+    alias = FOLDER_ALIASES.get(slug)
+    if alias in by_slug:
+        return alias
     # 'veeru-a' -> 'veeru'; also handles '<slug>-photos', '<slug>-final' etc.
     candidates = [s for s in by_slug if slug.startswith(s) or s.startswith(slug)]
     if candidates:
@@ -194,7 +209,16 @@ def write_images(images, out_dir, max_width, quality):
     written = []
     for index, src in enumerate(images, start=1):
         with Image.open(src) as im:
-            im = im.convert("RGB")
+            if im.mode in ("RGBA", "LA") or (im.mode == "P"
+                                             and "transparency" in im.info):
+                # the studio shots carry an alpha channel; a plain convert()
+                # composites it onto black, so lay them on white instead
+                rgba = im.convert("RGBA")
+                flat = Image.new("RGB", rgba.size, (255, 255, 255))
+                flat.paste(rgba, mask=rgba.getchannel("A"))
+                im = flat
+            else:
+                im = im.convert("RGB")
             if max(im.size) > max_width:
                 im.thumbnail((max_width, max_width), Image.LANCZOS)
             name = f"{index:02d}.jpg"
@@ -210,8 +234,11 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--feed", default=DEFAULT_FEED,
                     help="products.json URL or local path")
-    ap.add_argument("--photos", default=str(repo / "output" / "product_photos.zip"),
-                    help="folder or zip with one sub-folder per product")
+    ap.add_argument("--photos", default=None,
+                    help="folder or zip with one sub-folder per product. "
+                         "Omit it and the photos already built stay as they "
+                         "are — the masters live outside the repo, so a bare "
+                         "run must not be able to overwrite them.")
     ap.add_argument("--extra-photos", default=str(repo / "photos"),
                     help="curated photos that lead the gallery, same layout; "
                          "drop a folder here to override the scraped set")
@@ -230,7 +257,7 @@ def main():
     by_slug = {p["slug"]: p for p in products}
     print(f"  {len(products)} products")
 
-    if args.skip_images:
+    if args.skip_images or not args.photos:
         for product in products:
             folder = products_dir / product["slug"]
             product["images"] = sorted(p.name for p in folder.glob("*.jpg")) \
@@ -264,9 +291,23 @@ def main():
             if unmatched:
                 print(f"  ! no product matched: {', '.join(sorted(set(unmatched)))}")
 
+    # a product the photo source says nothing about keeps the gallery it has
+    for product in products:
+        if product["images"]:
+            continue
+        folder = products_dir / product["slug"]
+        if folder.is_dir():
+            product["images"] = sorted(f.name for f in folder.glob("*.jpg"))
+            if product["images"]:
+                print(f"  {product['slug']:28s} {len(product['images'])} photos (kept)")
+
     empty = [p["slug"] for p in products if not p["images"]]
     if empty:
         print(f"  ! no photos for: {', '.join(empty)}")
+
+    # Which colourway each photo shows, so the swatches can drive the gallery.
+    for product in products:
+        product["imageColors"] = colours_for(product, products_dir)
 
     # Products with photography first, so the grid never opens on a gap.
     products.sort(key=lambda p: (not p["images"], p["title"].lower()))

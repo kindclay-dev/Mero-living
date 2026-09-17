@@ -30,6 +30,11 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Black",
+      "02.jpg": "Stone",
+      "03.jpg": "Stone"
+    },
     "hasOptions": true
   },
   {
@@ -48,10 +53,9 @@ window.MERO_CATALOG = [
     "details": "Cushions are designed to weather the elements and resist stains, spills, fading and mild dew. Zippers resist corrosion. Our custom-fit outdoor covers (sold separately) are strongly recommended to protect furniture from the elements and minimize aging. Features : Used Indoor/ Outdoor No Drainage Hole Hand Made UV Resistant Weather Resistant UV Resistant",
     "url": "product.html?p=deco-chair",
     "images": [
-      "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "01.jpg"
     ],
+    "imageColors": {},
     "hasOptions": false
   },
   {
@@ -98,6 +102,13 @@ window.MERO_CATALOG = [
       "04.jpg",
       "05.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Orange",
+      "02.jpg": "Concrete",
+      "03.jpg": "Concrete",
+      "04.jpg": "Sky Blue",
+      "05.jpg": "Concrete"
+    },
     "hasOptions": true
   },
   {
@@ -137,6 +148,12 @@ window.MERO_CATALOG = [
       "03.jpg",
       "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Black",
+      "02.jpg": "Grey",
+      "03.jpg": "White",
+      "04.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -157,9 +174,9 @@ window.MERO_CATALOG = [
     "details": "Our classic series with its curves and flawlessly smooth coating with a touch of Modernity. These planters signify a subtle but bold statement adding a touch of elegance to any space. Hand-finished to the highest quality. Features : Used Indoor/ Outdoor Drainage Hole Hand Made Weather Resistant UV Resistant",
     "url": "product.html?p=flora-with-stand",
     "images": [
-      "01.jpg",
-      "02.jpg"
+      "01.jpg"
     ],
+    "imageColors": {},
     "hasOptions": true
   },
   {
@@ -187,10 +204,12 @@ window.MERO_CATALOG = [
     "url": "product.html?p=kaman",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "02.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -223,10 +242,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Sand",
+      "02.jpg": "Black",
+      "03.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -264,13 +286,14 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg",
-      "06.jpg",
-      "07.jpg",
-      "08.jpg",
-      "09.jpg"
+      "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "Grey",
+      "03.jpg": "Black",
+      "04.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -309,9 +332,14 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "White",
+      "03.jpg": "Black",
+      "04.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -345,10 +373,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "White",
+      "03.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -382,9 +413,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "White",
+      "03.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -416,10 +451,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Terracotta",
+      "02.jpg": "Terracotta",
+      "03.jpg": "Grey"
+    },
     "hasOptions": true
   },
   {
@@ -461,9 +499,15 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Sand",
+      "02.jpg": "White",
+      "03.jpg": "White",
+      "04.jpg": "Black",
+      "05.jpg": "Gray"
+    },
     "hasOptions": true
   },
   {
@@ -507,9 +551,15 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg"
+      "05.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Grey",
+      "02.jpg": "Black",
+      "03.jpg": "White",
+      "04.jpg": "Grey",
+      "05.jpg": "Grey"
+    },
     "hasOptions": true
   },
   {
@@ -552,8 +602,16 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Grey",
+      "02.jpg": "White",
+      "03.jpg": "Black",
+      "04.jpg": "White",
+      "05.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -596,8 +654,16 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "Black",
+      "03.jpg": "Grey",
+      "04.jpg": "White",
+      "05.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -628,9 +694,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Sand",
+      "02.jpg": "Sand",
+      "03.jpg": "Grey"
+    },
     "hasOptions": true
   },
   {
@@ -663,9 +733,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Grey",
+      "02.jpg": "Grey",
+      "03.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -704,9 +778,14 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Black",
+      "02.jpg": "White",
+      "03.jpg": "White",
+      "04.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -745,9 +824,14 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "White",
+      "03.jpg": "Black",
+      "04.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -786,9 +870,14 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "Sand",
+      "03.jpg": "Sand",
+      "04.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -822,9 +911,12 @@ window.MERO_CATALOG = [
     "url": "product.html?p=tura-table",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "02.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Ash Grey",
+      "02.jpg": "Ash Grey"
+    },
     "hasOptions": true
   },
   {
@@ -869,6 +961,14 @@ window.MERO_CATALOG = [
       "05.jpg",
       "06.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Sand",
+      "02.jpg": "Gray",
+      "03.jpg": "Gray",
+      "04.jpg": "Black",
+      "05.jpg": "White",
+      "06.jpg": "White"
+    },
     "hasOptions": true
   },
   {
@@ -900,9 +1000,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Black",
+      "02.jpg": "Black",
+      "03.jpg": "Grey"
+    },
     "hasOptions": true
   },
   {
@@ -934,9 +1038,13 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Black",
+      "02.jpg": "Grey",
+      "03.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -963,10 +1071,12 @@ window.MERO_CATALOG = [
     "url": "product.html?p=veeru-b",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "02.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Black",
+      "02.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -1006,6 +1116,12 @@ window.MERO_CATALOG = [
       "03.jpg",
       "04.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "White",
+      "02.jpg": "Grey",
+      "03.jpg": "White",
+      "04.jpg": "Black"
+    },
     "hasOptions": true
   },
   {
@@ -1041,6 +1157,10 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg"
     ],
+    "imageColors": {
+      "01.jpg": "Grey",
+      "02.jpg": "Grey"
+    },
     "hasOptions": true
   }
 ];
