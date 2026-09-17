@@ -94,6 +94,13 @@ exactly the stage height at any viewport — 116px on a 1440 screen, as the
 design has it. A product with more photos scrolls the rail; it never shows a
 part-cropped fifth.
 
+## Cache busting
+
+Replacement photography reuses `01.jpg`, `02.jpg` …, so a browser will happily
+keep serving the previous shoot. Every photo URL therefore carries a short
+content hash from `catalog.js` — `01.jpg?v=8ad29864` — which changes only when
+the file does.
+
 ## Colour swatches
 
 Clicking a swatch on a product page opens that colourway's photograph, and

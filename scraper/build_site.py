@@ -26,6 +26,7 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -155,6 +156,7 @@ def build_product(product):
         "url": f"product.html?p={product['handle']}",
         "images": [],
         "imageColors": {},
+        "imageRevs": {},
         "hasOptions": bool(option_names and option_names != ["title"]),
     }
 
@@ -308,6 +310,16 @@ def main():
     # Which colourway each photo shows, so the swatches can drive the gallery.
     for product in products:
         product["imageColors"] = colours_for(product, products_dir)
+
+    # A short content hash per photo. Replacement photography reuses the same
+    # filenames, so without this a browser keeps serving the previous shoot.
+    for product in products:
+        revs = {}
+        for name in product["images"]:
+            f = products_dir / product["slug"] / name
+            if f.is_file():
+                revs[name] = hashlib.md5(f.read_bytes()).hexdigest()[:8]
+        product["imageRevs"] = revs
 
     # Products with photography first, so the grid never opens on a gap.
     products.sort(key=lambda p: (not p["images"], p["title"].lower()))

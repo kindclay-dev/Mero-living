@@ -157,9 +157,16 @@ const money = n => "PKR " + Number(n).toLocaleString("en-US");
 
 function catalogPhotos(p) {
   return (p.images || []).map(file => ({
-    src: `assets/products/${p.slug}/${file}`,
+    src: photoSrc(p, file),
     alt: p.title
   }));
+}
+
+/* New photography reuses 01.jpg, 02.jpg …, so the content hash goes on the
+   URL — otherwise a browser serves the previous shoot from cache. */
+function photoSrc(p, file) {
+  const rev = (p.imageRevs || {})[file];
+  return `assets/products/${p.slug}/${file}` + (rev ? `?v=${rev}` : "");
 }
 
 function renderProduct() {

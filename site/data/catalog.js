@@ -35,6 +35,11 @@ window.MERO_CATALOG = [
       "02.jpg": "Stone",
       "03.jpg": "Stone"
     },
+    "imageRevs": {
+      "01.jpg": "5c0210f1",
+      "02.jpg": "f55ba3f3",
+      "03.jpg": "466a2875"
+    },
     "hasOptions": true
   },
   {
@@ -56,6 +61,9 @@ window.MERO_CATALOG = [
       "01.jpg"
     ],
     "imageColors": {},
+    "imageRevs": {
+      "01.jpg": "e438435a"
+    },
     "hasOptions": false
   },
   {
@@ -109,6 +117,13 @@ window.MERO_CATALOG = [
       "04.jpg": "Sky Blue",
       "05.jpg": "Concrete"
     },
+    "imageRevs": {
+      "01.jpg": "a6b253c6",
+      "02.jpg": "63b432a4",
+      "03.jpg": "3ba359cf",
+      "04.jpg": "f749ae37",
+      "05.jpg": "a4bd1969"
+    },
     "hasOptions": true
   },
   {
@@ -154,6 +169,12 @@ window.MERO_CATALOG = [
       "03.jpg": "White",
       "04.jpg": "White"
     },
+    "imageRevs": {
+      "01.jpg": "fb3e97ce",
+      "02.jpg": "ab6d48a8",
+      "03.jpg": "10b2a119",
+      "04.jpg": "da745ad8"
+    },
     "hasOptions": true
   },
   {
@@ -177,6 +198,9 @@ window.MERO_CATALOG = [
       "01.jpg"
     ],
     "imageColors": {},
+    "imageRevs": {
+      "01.jpg": "7513dc14"
+    },
     "hasOptions": true
   },
   {
@@ -209,6 +233,10 @@ window.MERO_CATALOG = [
     "imageColors": {
       "01.jpg": "White",
       "02.jpg": "White"
+    },
+    "imageRevs": {
+      "01.jpg": "d469cc41",
+      "02.jpg": "3d359a7c"
     },
     "hasOptions": true
   },
@@ -248,6 +276,11 @@ window.MERO_CATALOG = [
       "01.jpg": "Sand",
       "02.jpg": "Black",
       "03.jpg": "Black"
+    },
+    "imageRevs": {
+      "01.jpg": "a53334be",
+      "02.jpg": "35e2dc0f",
+      "03.jpg": "1fb3e232"
     },
     "hasOptions": true
   },
@@ -293,6 +326,12 @@ window.MERO_CATALOG = [
       "02.jpg": "Grey",
       "03.jpg": "Black",
       "04.jpg": "Black"
+    },
+    "imageRevs": {
+      "01.jpg": "0ff20c1a",
+      "02.jpg": "8a6eaf2b",
+      "03.jpg": "01f9b9f7",
+      "04.jpg": "09606d4f"
     },
     "hasOptions": true
   },
@@ -340,6 +379,12 @@ window.MERO_CATALOG = [
       "03.jpg": "Black",
       "04.jpg": "Black"
     },
+    "imageRevs": {
+      "01.jpg": "80a813ea",
+      "02.jpg": "fca1339c",
+      "03.jpg": "700b50ed",
+      "04.jpg": "fd77e5b0"
+    },
     "hasOptions": true
   },
   {
@@ -379,6 +424,11 @@ window.MERO_CATALOG = [
       "01.jpg": "White",
       "02.jpg": "White",
       "03.jpg": "White"
+    },
+    "imageRevs": {
+      "01.jpg": "30e14fc0",
+      "02.jpg": "22491d09",
+      "03.jpg": "596aed8e"
     },
     "hasOptions": true
   },
@@ -420,6 +470,11 @@ window.MERO_CATALOG = [
       "02.jpg": "White",
       "03.jpg": "White"
     },
+    "imageRevs": {
+      "01.jpg": "9d65f4b1",
+      "02.jpg": "0981c3d7",
+      "03.jpg": "98ab47c3"
+    },
     "hasOptions": true
   },
   {
@@ -457,6 +512,11 @@ window.MERO_CATALOG = [
       "01.jpg": "Terracotta",
       "02.jpg": "Terracotta",
       "03.jpg": "Grey"
+    },
+    "imageRevs": {
+      "01.jpg": "5dd6c697",
+      "02.jpg": "398b0af9",
+      "03.jpg": "75c6bc89"
     },
     "hasOptions": true
   },
@@ -507,6 +567,13 @@ window.MERO_CATALOG = [
       "03.jpg": "White",
       "04.jpg": "Black",
       "05.jpg": "Gray"
+    },
+    "imageRevs": {
+      "01.jpg": "1af29104",
+      "02.jpg": "93efc30b",
+      "03.jpg": "0dcd7a68",
+      "04.jpg": "0d4edc0f",
+      "05.jpg": "faee38b6"
     },
     "hasOptions": true
   },
@@ -560,6 +627,13 @@ window.MERO_CATALOG = [
       "04.jpg": "Grey",
       "05.jpg": "Grey"
     },
+    "imageRevs": {
+      "01.jpg": "dc853fe8",
+      "02.jpg": "c41055ba",
+      "03.jpg": "2224179d",
+      "04.jpg": "0b4f1313",
+      "05.jpg": "1cc080d1"
+    },
     "hasOptions": true
   },
   {
@@ -611,6 +685,13 @@ window.MERO_CATALOG = [
       "03.jpg": "Black",
       "04.jpg": "White",
       "05.jpg": "White"
+    },
+    "imageRevs": {
+      "01.jpg": "e18726f5",
+      "02.jpg": "e7608dfd",
+      "03.jpg": "7f7cd5ef",
+      "04.jpg": "1ca3bafe",
+      "05.jpg": "4740690c"
     },
     "hasOptions": true
   },
@@ -664,6 +745,13 @@ window.MERO_CATALOG = [
       "04.jpg": "White",
       "05.jpg": "Black"
     },
+    "imageRevs": {
+      "01.jpg": "796567c6",
+      "02.jpg": "c16b9a1d",
+      "03.jpg": "29280e7f",
+      "04.jpg": "a97ba15f",
+      "05.jpg": "fb575702"
+    },
     "hasOptions": true
   },
   {
@@ -700,6 +788,11 @@ window.MERO_CATALOG = [
       "01.jpg": "Sand",
       "02.jpg": "Sand",
       "03.jpg": "Grey"
+    },
+    "imageRevs": {
+      "01.jpg": "622169e8",
+      "02.jpg": "0cb5ecde",
+      "03.jpg": "26978e7b"
     },
     "hasOptions": true
   },
@@ -739,6 +832,11 @@ window.MERO_CATALOG = [
       "01.jpg": "Grey",
       "02.jpg": "Grey",
       "03.jpg": "White"
+    },
+    "imageRevs": {
+      "01.jpg": "5950f3fc",
+      "02.jpg": "59a5cb79",
+      "03.jpg": "1e6d7b50"
     },
     "hasOptions": true
   },
@@ -786,6 +884,12 @@ window.MERO_CATALOG = [
       "03.jpg": "White",
       "04.jpg": "White"
     },
+    "imageRevs": {
+      "01.jpg": "ab9e3ad5",
+      "02.jpg": "c1890ba0",
+      "03.jpg": "e5292709",
+      "04.jpg": "4f30e04b"
+    },
     "hasOptions": true
   },
   {
@@ -831,6 +935,12 @@ window.MERO_CATALOG = [
       "02.jpg": "White",
       "03.jpg": "Black",
       "04.jpg": "Black"
+    },
+    "imageRevs": {
+      "01.jpg": "f80e8a2a",
+      "02.jpg": "24ee5632",
+      "03.jpg": "1413ec51",
+      "04.jpg": "fc44c099"
     },
     "hasOptions": true
   },
@@ -878,6 +988,12 @@ window.MERO_CATALOG = [
       "03.jpg": "Sand",
       "04.jpg": "Black"
     },
+    "imageRevs": {
+      "01.jpg": "8c4dfc77",
+      "02.jpg": "8a6909d7",
+      "03.jpg": "70af4847",
+      "04.jpg": "6cb88149"
+    },
     "hasOptions": true
   },
   {
@@ -916,6 +1032,10 @@ window.MERO_CATALOG = [
     "imageColors": {
       "01.jpg": "Ash Grey",
       "02.jpg": "Ash Grey"
+    },
+    "imageRevs": {
+      "01.jpg": "cf215e25",
+      "02.jpg": "39706a4a"
     },
     "hasOptions": true
   },
@@ -967,6 +1087,13 @@ window.MERO_CATALOG = [
       "04.jpg": "Black",
       "05.jpg": "Black"
     },
+    "imageRevs": {
+      "01.jpg": "8ad29864",
+      "02.jpg": "b46631c5",
+      "03.jpg": "75106b15",
+      "04.jpg": "81d1b60f",
+      "05.jpg": "b29ed701"
+    },
     "hasOptions": true
   },
   {
@@ -1004,6 +1131,11 @@ window.MERO_CATALOG = [
       "01.jpg": "Black",
       "02.jpg": "Black",
       "03.jpg": "Grey"
+    },
+    "imageRevs": {
+      "01.jpg": "50b27386",
+      "02.jpg": "b515fb34",
+      "03.jpg": "d9ff6bb2"
     },
     "hasOptions": true
   },
@@ -1043,6 +1175,11 @@ window.MERO_CATALOG = [
       "02.jpg": "Grey",
       "03.jpg": "Black"
     },
+    "imageRevs": {
+      "01.jpg": "56a8bdd8",
+      "02.jpg": "6b35fe1d",
+      "03.jpg": "986ededa"
+    },
     "hasOptions": true
   },
   {
@@ -1074,6 +1211,10 @@ window.MERO_CATALOG = [
     "imageColors": {
       "01.jpg": "Black",
       "02.jpg": "Black"
+    },
+    "imageRevs": {
+      "01.jpg": "f1031bbb",
+      "02.jpg": "896d70ae"
     },
     "hasOptions": true
   },
@@ -1120,6 +1261,12 @@ window.MERO_CATALOG = [
       "03.jpg": "White",
       "04.jpg": "Black"
     },
+    "imageRevs": {
+      "01.jpg": "b881990e",
+      "02.jpg": "67d00b34",
+      "03.jpg": "1a821b23",
+      "04.jpg": "8e5c6b16"
+    },
     "hasOptions": true
   },
   {
@@ -1158,6 +1305,10 @@ window.MERO_CATALOG = [
     "imageColors": {
       "01.jpg": "Grey",
       "02.jpg": "Grey"
+    },
+    "imageRevs": {
+      "01.jpg": "60b8bc85",
+      "02.jpg": "231688bb"
     },
     "hasOptions": true
   }

@@ -66,9 +66,13 @@ const els = {
 let category = new URLSearchParams(location.search).get("c") || "all";
 if (!CATEGORIES.some(c => c.id === category)) category = "all";
 
+/* The content hash busts the cache when photography is replaced under the
+   same filename. */
 function photoSrc(product, index) {
   const file = product.images[index];
-  return file ? `assets/products/${product.slug}/${file}` : null;
+  if (!file) return null;
+  const rev = (product.imageRevs || {})[file];
+  return `assets/products/${product.slug}/${file}` + (rev ? `?v=${rev}` : "");
 }
 
 function card(product) {
