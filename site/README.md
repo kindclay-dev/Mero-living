@@ -9,7 +9,6 @@ site/
 ├── data/catalog.js     generated — window.MERO_CATALOG
 └── assets/
     ├── site.css        the whole design system, both pages
-    ├── uploads.js      photos added in the browser (IndexedDB)
     ├── products/<slug>/NN.jpg
     ├── fonts/          Jost and Cormorant Garamond
     └── *.png           MERO wordmark, HBL and Bank Alfalah lockups
@@ -50,16 +49,8 @@ silently.
 product's gallery, ahead of the bulk set. That's how Mavi keeps the styled
 hero shots its page was designed around.
 
-## Adding photos from the browser
-
-The grid page takes a whole folder — via **Choose folder** or by dropping it —
-splits it by sub-folder and files each set against the matching product.
-Photos are held in IndexedDB, so they survive navigation and reloads and show
-up on the product pages too. Nothing is uploaded anywhere. **Clear uploads**
-removes them. The product page's **Add photo** does the same for one product.
-
-This is for previewing real photography before it's wired to a backend; to
-make photos permanent, put them in `photos/<slug>/` and rebuild.
+Adding photography is a build step — there is no upload control on the site.
+Put images in `photos/<slug>/` (or point `--photos` at a folder) and rebuild.
 
 ## Type
 

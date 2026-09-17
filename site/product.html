@@ -102,11 +102,6 @@
 
       <div class="rail-cell"><div class="rail">
         <div class="thumbs" id="thumbs"></div>
-        <label class="upload">
-          <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3h16v-3"/></svg>
-          Add photo
-          <input type="file" id="upload-input" accept="image/*" multiple>
-        </label>
       </div></div>
     </section>
 
@@ -116,11 +111,10 @@
 </main>
 
 <script src="data/catalog.js"></script>
-<script src="assets/uploads.js"></script>
 <script>
 /* ------------------------------------------------------------------
    The page renders whichever product ?p= names, from the generated
-   catalogue. Photos dropped in the browser are merged in on top.
+   catalogue.
 ------------------------------------------------------------------ */
 const CATALOG = window.MERO_CATALOG || [];
 
@@ -144,7 +138,6 @@ const els = {
   captionSub: document.getElementById("caption-sub"),
   thumbs: document.getElementById("thumbs"),
   qty: document.getElementById("qty"),
-  upload: document.getElementById("upload-input"),
   pager: document.getElementById("pager")
 };
 
@@ -153,11 +146,10 @@ let index = CATALOG.findIndex(p => p.slug === params.get("p"));
 if (index < 0) index = 0;
 
 let product = CATALOG[index] || null;
-let photos = [];                 // {src, alt, uploaded?} for the product on screen
+let photos = [];                 // {src, alt} for the product on screen
 let slideIndex = 0;
 let timer = null;
 let autoplay = AUTOPLAY && !REDUCED_MOTION;
-const objectUrls = [];
 
 const money = n => "PKR " + Number(n).toLocaleString("en-US");
 
@@ -305,45 +297,13 @@ function stopAuto() {
   timer = null;
 }
 
-/* ---------- photos added in the browser ---------- */
+/* ---------- photos ---------- */
 
-async function loadPhotos() {
+function loadPhotos() {
   photos = product ? catalogPhotos(product) : [];
-  if (product) {
-    try {
-      const dropped = await MeroUploads.get(product.slug);
-      dropped.forEach(p => objectUrls.push(p.src));
-      photos = photos.concat(dropped);
-    } catch (err) { /* no IndexedDB: fall back to the built-in photos */ }
-  }
   renderImages();
   startAuto();
 }
-
-els.upload.addEventListener("change", async e => {
-  const files = [...e.target.files].filter(MeroUploads.isImage);
-  e.target.value = "";
-  if (!files.length || !product) return;
-  try {
-    await MeroUploads.put(product.slug, files);
-    const before = photos.length;
-    await loadPhotos();
-    stopAuto();
-    showSlide(before);
-  } catch (err) {
-    // storage unavailable — still show them for this session
-    files.forEach(f => {
-      const url = URL.createObjectURL(f);
-      objectUrls.push(url);
-      photos.push({ src: url, alt: f.name, uploaded: true });
-    });
-    stopAuto();
-    renderImages();
-    showSlide(photos.length - files.length);
-  }
-});
-
-window.addEventListener("beforeunload", () => objectUrls.forEach(URL.revokeObjectURL));
 
 /* ---------- wiring ---------- */
 

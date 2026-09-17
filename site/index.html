@@ -38,32 +38,14 @@
       <span class="catalogue-count" id="cat-count"></span>
     </div>
 
-    <div class="dropzone" id="dropzone">
-      <p>
-        <b>Add photography</b><br>
-        Drop a folder of product sub-folders here &mdash; <code>mavi/</code>,
-        <code>reewa/</code> &mdash; and each set lands on its product.
-        Photos stay in this browser.
-      </p>
-      <div class="dropzone-actions">
-        <label class="btn-line">
-          Choose folder
-          <input type="file" id="folder-input" webkitdirectory directory multiple>
-        </label>
-        <button class="btn-quiet" id="clear-uploads" hidden>Clear uploads</button>
-      </div>
-    </div>
-
     <div class="filters" id="filters"></div>
     <div class="grid" id="grid"></div>
   </section>
 </main>
 
 <script src="data/catalog.js"></script>
-<script src="assets/uploads.js"></script>
 <script>
 const CATALOG = window.MERO_CATALOG || [];
-const SLUGS = CATALOG.map(p => p.slug);
 
 const CATEGORIES = [
   { id: "all",       label: "Shop All",  match: () => true },
@@ -78,25 +60,15 @@ const els = {
   grid: document.getElementById("grid"),
   filters: document.getElementById("filters"),
   title: document.getElementById("cat-title"),
-  count: document.getElementById("cat-count"),
-  dropzone: document.getElementById("dropzone"),
-  folderInput: document.getElementById("folder-input"),
-  clear: document.getElementById("clear-uploads")
+  count: document.getElementById("cat-count")
 };
 
 let category = new URLSearchParams(location.search).get("c") || "all";
 if (!CATEGORIES.some(c => c.id === category)) category = "all";
 
-let uploadCovers = {};   // slug -> object URL of a dropped photo
-let uploadCounts = {};   // slug -> how many were dropped
-
 function photoSrc(product, index) {
   const file = product.images[index];
   return file ? `assets/products/${product.slug}/${file}` : null;
-}
-
-function cover(product) {
-  return uploadCovers[product.slug] || photoSrc(product, 0);
 }
 
 function card(product) {
@@ -104,16 +76,13 @@ function card(product) {
   a.className = "card";
   a.href = `product.html?p=${encodeURIComponent(product.slug)}`;
 
-  const main = cover(product);
+  const main = photoSrc(product, 0);
   const alt = photoSrc(product, 1);
-  const uploaded = uploadCounts[product.slug];
 
   a.innerHTML = `
     <div class="card-media">
       ${main ? `<img src="${main}" alt="${product.title}" loading="lazy">` : ""}
-      ${alt && !uploadCovers[product.slug]
-          ? `<img class="alt" src="${alt}" alt="" loading="lazy">` : ""}
-      ${uploaded ? `<span class="card-tag">${uploaded} added</span>` : ""}
+      ${alt ? `<img class="alt" src="${alt}" alt="" loading="lazy">` : ""}
     </div>
     <div class="card-body">
       <div class="card-name">${product.title}</div>
@@ -166,72 +135,11 @@ function render() {
   [...document.querySelectorAll(".nav a")].forEach(a =>
     a.classList.toggle("is-active", a.dataset.cat === category));
   renderFilters();
-  els.clear.hidden = !Object.keys(uploadCounts).length;
 }
-
-/* ---------- dropped folders ---------- */
-
-async function refreshUploads() {
-  try {
-    uploadCounts = await MeroUploads.counts();
-    uploadCovers = await MeroUploads.covers();
-  } catch (err) {
-    uploadCounts = {};
-    uploadCovers = {};
-  }
-}
-
-async function ingest(files) {
-  const { matched, skipped } = MeroUploads.group(files, SLUGS);
-  const slugs = Object.keys(matched);
-  if (!slugs.length) {
-    alert(skipped.length
-      ? `No folder matched a product. Name each sub-folder after its product, e.g. "mavi".\n\nSkipped: ${skipped.join(", ")}`
-      : "No images found in that folder.");
-    return;
-  }
-  for (const slug of slugs) await MeroUploads.put(slug, matched[slug]);
-  await refreshUploads();
-  render();
-
-  const added = slugs.reduce((n, s) => n + matched[s].length, 0);
-  let message = `Added ${added} photo${added === 1 ? "" : "s"} across ${slugs.length} product${slugs.length === 1 ? "" : "s"}.`;
-  if (skipped.length) message += `\n\nNo product matched: ${skipped.join(", ")}`;
-  alert(message);
-}
-
-els.folderInput.addEventListener("change", e => {
-  // copy before resetting: clearing the input empties the live FileList
-  const files = [...e.target.files];
-  e.target.value = "";
-  if (files.length) ingest(files);
-});
-
-["dragenter", "dragover"].forEach(type =>
-  els.dropzone.addEventListener(type, e => {
-    e.preventDefault();
-    els.dropzone.classList.add("is-over");
-  }));
-["dragleave", "drop"].forEach(type =>
-  els.dropzone.addEventListener(type, () => els.dropzone.classList.remove("is-over")));
-
-els.dropzone.addEventListener("drop", async e => {
-  e.preventDefault();
-  const files = await MeroUploads.readDrop(e.dataTransfer);
-  if (files.length) ingest(files);
-});
-
-els.clear.addEventListener("click", async () => {
-  if (!confirm("Remove every photo added in this browser?")) return;
-  await MeroUploads.clear();
-  await refreshUploads();
-  render();
-});
 
 /* ---------- go ---------- */
 
 render();
-refreshUploads().then(render);
 </script>
 </body>
 </html>

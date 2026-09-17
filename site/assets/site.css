@@ -254,21 +254,6 @@ a{color:inherit;text-decoration:none}
 .thumb img{width:100%;height:100%;object-fit:cover}
 .thumb[aria-current="true"]{border-color:#c9c2b8}
 
-.upload{
-  flex:0 0 auto;
-  margin-top:14px;
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  height:34px;
-  border:1px dashed #cfcfcf;
-  color:var(--muted);
-  font-size:10px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
-  cursor:pointer;
-  transition:border-color .2s ease,color .2s ease;
-}
-.upload:hover{border-color:var(--muted);color:var(--price)}
-.upload svg{width:13px;height:13px;stroke:currentColor;stroke-width:1.5;fill:none}
-.upload input{display:none}
-
 .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;
   overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
@@ -297,7 +282,6 @@ a{color:inherit;text-decoration:none}
   .rail{position:static;height:auto}
   .thumbs{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding-bottom:4px}
   .thumb{flex:0 0 86px}
-  .upload{margin-top:12px;height:34px}
   .buy-row{flex-wrap:wrap}
 }
 
@@ -352,43 +336,10 @@ a{color:inherit;text-decoration:none}
   width:13px;height:13px;border-radius:50%;
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);
 }
-.card-tag{
-  position:absolute;top:12px;left:12px;
-  background:rgba(255,255,255,.92);color:var(--price);
-  font-size:10px;letter-spacing:var(--track);text-transform:uppercase;
-  padding:5px 9px;
-}
 .empty{
   grid-column:1 / -1;padding:70px 0;text-align:center;
   font-size:15px;letter-spacing:.063em;color:var(--muted);
 }
-
-/* folder drop ------------------------------------------------------ */
-.dropzone{
-  margin:0 0 38px;
-  border:1px dashed #d4d4d4;
-  padding:20px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  flex-wrap:wrap;
-  transition:border-color .2s ease,background .2s ease;
-}
-.dropzone.is-over{border-color:var(--taupe);background:#faf8f6}
-.dropzone p{margin:0;font-size:14px;line-height:1.7;letter-spacing:.04em;color:var(--muted)}
-.dropzone b{font-weight:500;color:var(--price);letter-spacing:.07em;text-transform:uppercase}
-.dropzone code{font-family:var(--sans);color:var(--price)}
-.dropzone-actions{display:flex;gap:10px;align-items:center}
-.btn-line{
-  border:1px solid var(--ink);color:var(--ink);
-  padding:11px 20px;font-size:13px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
-  transition:background .18s ease,color .18s ease;
-}
-.btn-line:hover{background:var(--ink);color:#fff}
-.btn-quiet{
-  color:var(--muted);font-size:13px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
-  border-bottom:1px solid transparent;
-}
-.btn-quiet:hover{color:var(--price);border-bottom-color:var(--muted)}
-.dropzone input{display:none}
 
 /* ==================================================================
    Product page additions
@@ -419,10 +370,6 @@ a{color:inherit;text-decoration:none}
 .pager a:hover{color:var(--ink)}
 .pager .spacer{flex:1}
 
-.uploaded-note{
-  margin-top:14px;font-size:12px;letter-spacing:.06em;color:var(--muted);
-}
-
 @media (max-width:1180px){
   .grid{grid-template-columns:repeat(3,1fr)}
 }
@@ -434,6 +381,5 @@ a{color:inherit;text-decoration:none}
   .grid{column-gap:14px;row-gap:30px}
   .card-name{font-size:14px;letter-spacing:.07em}
   .card-price{font-size:13px}
-  .dropzone{padding:16px}
   .catalogue{padding:20px 0 70px}
 }
