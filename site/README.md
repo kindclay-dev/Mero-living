@@ -63,20 +63,28 @@ make photos permanent, put them in `photos/<slug>/` and rebuild.
 
 ## Type
 
-Three faces, all self-hosted as woff2 — no Google Fonts request, and the
-design holds offline.
+**Outfit** sets the whole storefront, self-hosted as a variable woff2 and
+preloaded — no Google Fonts request, and the design holds offline. The only
+other face is **Cormorant Garamond** italic, for the `series` in the Mavi
+lockup.
 
-- **Outfit** (`--display`) sets the nav in regular and the product titles in
-  light, both tracked at 10%. "Product title" covers the product page's
-  heading and the grid card name — the same line in both places.
-- **Jost** (`--sans`) carries everything else. It stands in for Futura, the
-  storefront's face, which the pages ask for first.
-- **Cormorant Garamond** italic sets the `series` in the Mavi lockup.
+The scale, with 10% tracking shared as `--track`:
 
-Body sizes and tracking were calibrated against the original design PDF: the
-landmarks land within ~3px at a 1440px viewport and the justified DETAILS copy
-breaks on the same words. The titles and nav now follow the Outfit spec
-instead, so those two deliberately depart from the PDF.
+| | face | weight | tracking |
+|---|---|---|---|
+| Nav, buttons, filters, size chips | Outfit | regular 400 | 10% |
+| Product titles, catalogue heading, card names | Outfit | light 300 | 10% |
+| Prices, on the page and on the cards | Outfit | medium 500 | 10% |
+| SKU | Outfit 13px | medium 500 | 0% |
+| Body copy, labels, quantity | Outfit | regular 400 | as set |
+
+Buttons deliberately share the nav's voice — regular at 10% — so the chrome
+reads as one system.
+
+Earlier revisions set the body in Jost as a Futura stand-in, calibrated so the
+DETAILS copy broke line-for-line with the original design PDF. Outfit is
+narrower, so those line breaks and the ~3px landmark match no longer hold; the
+layout geometry (columns, gallery, spacing) is unchanged.
 
 ## Catalogue fields
 

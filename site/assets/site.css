@@ -1,13 +1,5 @@
-/* Jost stands in for Futura, the face used throughout the MERO storefront;
-   Cormorant Garamond italic covers the "series" lockup on the hero. */
-@font-face{
-  font-family:"Jost";
-  src:url("fonts/jost-latin-var.woff2") format("woff2-variations"),
-      url("fonts/jost-latin-var.woff2") format("woff2");
-  font-weight:100 900;
-  font-style:normal;
-  font-display:swap;
-}
+/* Outfit sets the whole storefront; Cormorant Garamond italic covers the
+   "series" lockup on the hero. */
 @font-face{
   font-family:"Outfit";
   src:url("fonts/outfit-latin-var.woff2") format("woff2-variations"),
@@ -33,8 +25,10 @@
   --line-soft:#eeeeee;
   --field:#f6f6f6;
   --page:#ffffff;
-  --sans:"Futura","Futura PT","Futura Std","Jost","Century Gothic",system-ui,sans-serif;
-  --display:"Outfit",var(--sans);
+  --sans:"Outfit","Century Gothic",system-ui,sans-serif;
+  --display:var(--sans);
+  /* the nav voice: regular, tracked 10% — shared with buttons */
+  --track:.1em;
   --serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -49,6 +43,7 @@ body{
 }
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+input,select,textarea{font-family:inherit}
 a{color:inherit;text-decoration:none}
 
 /* ---------- header ---------- */
@@ -77,7 +72,7 @@ a{color:inherit;text-decoration:none}
   font-family:var(--display);
   font-size:21px;
   font-weight:400;
-  letter-spacing:.1em;
+  letter-spacing:var(--track);
   color:var(--muted);
   padding-bottom:4px;
 }
@@ -101,7 +96,7 @@ a{color:inherit;text-decoration:none}
   font-family:var(--display);
   font-size:40px;
   font-weight:300;
-  letter-spacing:.1em;
+  letter-spacing:var(--track);
   line-height:1.1;
   color:var(--muted);
   text-transform:uppercase;
@@ -111,8 +106,8 @@ a{color:inherit;text-decoration:none}
 .wish-plain.is-on svg{fill:currentColor}
 
 .price-row{display:flex;align-items:baseline;gap:11px;margin-top:20px}
-.price{font-size:21px;font-weight:500;letter-spacing:.08em;color:var(--price);margin:0}
-.sku{font-size:15px;letter-spacing:.04em;color:var(--muted)}
+.price{font-size:21px;font-weight:500;letter-spacing:var(--track);color:var(--price);margin:0}
+.sku{font-size:13px;font-weight:500;letter-spacing:0;color:var(--muted)}
 
 .swatches{display:flex;gap:18px;margin-top:26px}
 .swatches:empty{display:none}
@@ -168,7 +163,7 @@ a{color:inherit;text-decoration:none}
 .qty input::-webkit-outer-spin-button,
 .qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .line-price{text-align:right;line-height:1.35}
-.line-price .amount{font-size:22px;font-weight:500;letter-spacing:.07em;color:var(--price)}
+.line-price .amount{font-size:22px;font-weight:500;letter-spacing:var(--track);color:var(--price)}
 .line-price .each{font-size:15px;color:var(--muted)}
 
 .cart-row{display:flex;gap:9px;margin-top:18px}
@@ -178,8 +173,8 @@ a{color:inherit;text-decoration:none}
   color:#fff;
   height:60px;
   font-size:18px;
-  font-weight:500;
-  letter-spacing:.14em;
+  font-weight:400;
+  letter-spacing:var(--track);
   transition:background .18s ease;
 }
 .add-to-cart:hover{background:#000}
@@ -221,7 +216,7 @@ a{color:inherit;text-decoration:none}
   transition:opacity .35s ease;
 }
 .stage-caption .name{
-  display:block;font-size:var(--lockup, 75px);font-weight:300;letter-spacing:.1em;line-height:1;
+  display:block;font-size:var(--lockup, 75px);font-weight:300;letter-spacing:var(--track);line-height:1;
   text-transform:uppercase;text-indent:.1em;
   white-space:nowrap;
 }
@@ -265,7 +260,7 @@ a{color:inherit;text-decoration:none}
   height:34px;
   border:1px dashed #cfcfcf;
   color:var(--muted);
-  font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  font-size:10px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
   cursor:pointer;
   transition:border-color .2s ease,color .2s ease;
 }
@@ -316,14 +311,14 @@ a{color:inherit;text-decoration:none}
 .catalogue-title{
   margin:0;
   font-family:var(--display);
-  font-size:40px;font-weight:300;letter-spacing:.1em;line-height:1.1;
+  font-size:40px;font-weight:300;letter-spacing:var(--track);line-height:1.1;
   color:var(--muted);text-transform:uppercase;
 }
 .catalogue-count{font-size:15px;letter-spacing:.063em;color:var(--muted)}
 
 .filters{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:38px}
 .filters button{
-  font-size:15px;letter-spacing:.07em;text-transform:uppercase;
+  font-size:15px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
   color:var(--muted);padding-bottom:4px;border-bottom:1px solid transparent;
 }
 .filters button:hover{color:var(--price)}
@@ -347,10 +342,10 @@ a{color:inherit;text-decoration:none}
 .card-body{padding-top:16px}
 .card-name{
   font-family:var(--display);
-  font-size:17px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;
+  font-size:17px;font-weight:300;letter-spacing:var(--track);text-transform:uppercase;
   color:var(--price);line-height:1.3;
 }
-.card-price{margin-top:6px;font-size:15px;letter-spacing:.063em;color:var(--muted)}
+.card-price{margin-top:6px;font-size:14px;font-weight:500;letter-spacing:var(--track);color:var(--muted)}
 .card-colors{display:flex;gap:7px;margin-top:11px}
 .card-colors span{
   width:13px;height:13px;border-radius:50%;
@@ -359,7 +354,7 @@ a{color:inherit;text-decoration:none}
 .card-tag{
   position:absolute;top:12px;left:12px;
   background:rgba(255,255,255,.92);color:var(--price);
-  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  font-size:10px;letter-spacing:var(--track);text-transform:uppercase;
   padding:5px 9px;
 }
 .empty{
@@ -383,12 +378,12 @@ a{color:inherit;text-decoration:none}
 .dropzone-actions{display:flex;gap:10px;align-items:center}
 .btn-line{
   border:1px solid var(--ink);color:var(--ink);
-  padding:11px 20px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  padding:11px 20px;font-size:13px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
   transition:background .18s ease,color .18s ease;
 }
 .btn-line:hover{background:var(--ink);color:#fff}
 .btn-quiet{
-  color:var(--muted);font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;
   border-bottom:1px solid transparent;
 }
 .btn-quiet:hover{color:var(--price);border-bottom-color:var(--muted)}
@@ -409,7 +404,7 @@ a{color:inherit;text-decoration:none}
 .sizes button{
   border:1px solid var(--line);
   padding:9px 16px;
-  font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-size:13px;font-weight:400;letter-spacing:var(--track);text-transform:uppercase;color:var(--muted);
   transition:border-color .15s ease,color .15s ease;
 }
 .sizes button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink)}
