@@ -6,6 +6,8 @@ A storefront built from the live meroliving.com catalogue.
   See [site/README.md](site/README.md).
 - **`scraper/build_site.py`** — builds `site/data/catalog.js` and the product
   photography from the feed plus a folder of photos.
+- **`new-products/`** — drop new planter photography here (a zip is fine),
+  then ask me to update.
 - **`photos/`** — curated shots that lead a product's gallery.
 - **`scraper/scrape_products.py`** — the original catalogue scrape, below.
 
