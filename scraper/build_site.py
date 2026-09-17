@@ -61,6 +61,12 @@ LIGHT_SWATCHES = {"white", "sand", "stone", "concrete", "sky blue"}
 # "table" would wrongly sweep in the Varsha table-top planter and Flora's stand.
 FURNITURE_TAG = "home"
 
+# Photo folders whose name cannot be reached from the product handle by
+# slugifying and prefix-matching alone.
+FOLDER_ALIASES = {
+    "earthern": "earthen-collection",   # misspelt "Earthen"
+}
+
 # Products whose opening shot is a styled hero, so the name/"series" lockup
 # sits over it the way the Mavi design does. Add a slug here once a product
 # has photography with room for type.
@@ -180,6 +186,9 @@ def match_product(name, by_slug):
     slug = folder_slug(name)
     if slug in by_slug:
         return slug
+    alias = FOLDER_ALIASES.get(slug)
+    if alias in by_slug:
+        return alias
     # 'veeru-a' -> 'veeru'; also handles '<slug>-photos', '<slug>-final' etc.
     candidates = [s for s in by_slug if slug.startswith(s) or s.startswith(slug)]
     if candidates:
@@ -194,7 +203,16 @@ def write_images(images, out_dir, max_width, quality):
     written = []
     for index, src in enumerate(images, start=1):
         with Image.open(src) as im:
-            im = im.convert("RGB")
+            if im.mode in ("RGBA", "LA") or (im.mode == "P"
+                                             and "transparency" in im.info):
+                # the studio shots carry an alpha channel; a plain convert()
+                # composites it onto black, so lay them on white instead
+                rgba = im.convert("RGBA")
+                flat = Image.new("RGB", rgba.size, (255, 255, 255))
+                flat.paste(rgba, mask=rgba.getchannel("A"))
+                im = flat
+            else:
+                im = im.convert("RGB")
             if max(im.size) > max_width:
                 im.thumbnail((max_width, max_width), Image.LANCZOS)
             name = f"{index:02d}.jpg"
@@ -263,6 +281,16 @@ def main():
                 print(f"  {slug:28s} {len(written)} photos{mark}")
             if unmatched:
                 print(f"  ! no product matched: {', '.join(sorted(set(unmatched)))}")
+
+    # a product the photo source says nothing about keeps the gallery it has
+    for product in products:
+        if product["images"]:
+            continue
+        folder = products_dir / product["slug"]
+        if folder.is_dir():
+            product["images"] = sorted(f.name for f in folder.glob("*.jpg"))
+            if product["images"]:
+                print(f"  {product['slug']:28s} {len(product['images'])} photos (kept)")
 
     empty = [p["slug"] for p in products if not p["images"]]
     if empty:

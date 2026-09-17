@@ -28,7 +28,8 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg"
+      "03.jpg",
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -49,8 +50,7 @@ window.MERO_CATALOG = [
     "url": "product.html?p=deco-chair",
     "images": [
       "01.jpg",
-      "02.jpg",
-      "03.jpg"
+      "02.jpg"
     ],
     "hasOptions": false
   },
@@ -96,7 +96,8 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg"
+      "05.jpg",
+      "06.jpg"
     ],
     "hasOptions": true
   },
@@ -135,7 +136,8 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -188,8 +190,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -224,8 +225,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -265,11 +265,7 @@ window.MERO_CATALOG = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
-      "06.jpg",
-      "07.jpg",
-      "08.jpg",
-      "09.jpg"
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -346,8 +342,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -417,8 +412,7 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg"
+      "04.jpg"
     ],
     "hasOptions": true
   },
@@ -552,7 +546,9 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg",
+      "06.jpg"
     ],
     "hasOptions": true
   },
@@ -596,7 +592,8 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -964,8 +961,7 @@ window.MERO_CATALOG = [
     "images": [
       "01.jpg",
       "02.jpg",
-      "03.jpg",
-      "04.jpg"
+      "03.jpg"
     ],
     "hasOptions": true
   },
@@ -1004,7 +1000,8 @@ window.MERO_CATALOG = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg"
     ],
     "hasOptions": true
   },
@@ -1039,7 +1036,8 @@ window.MERO_CATALOG = [
     "url": "product.html?p=willow-table",
     "images": [
       "01.jpg",
-      "02.jpg"
+      "02.jpg",
+      "03.jpg"
     ],
     "hasOptions": true
   }
