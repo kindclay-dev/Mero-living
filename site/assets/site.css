@@ -202,7 +202,16 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ---------- gallery ---------- */
-.gallery{display:grid;grid-template-columns:1fr 116px;column-gap:19px;align-items:start}
+/* Geometry: the stage is square, so its height follows the width left over
+   after the rail. Sizing the rail at (gallery - gap) / 5.5 makes four
+   thumbnails plus three gaps of a sixth each come to exactly that height, at
+   any width — 116px on a 1440 viewport, as the design has it. */
+.gallery{
+  display:grid;
+  grid-template-columns:1fr calc((100% - 19px) / 5.5);
+  column-gap:19px;
+  align-items:start;
+}
 /* the rail is taken out of flow so the square stage alone sets the row height */
 .rail-cell{position:relative;align-self:stretch}
 .stage{position:relative;aspect-ratio:1/1;overflow:hidden;background:#f0ebe3}
@@ -241,13 +250,16 @@ a{color:inherit;text-decoration:none}
 .product > *, .gallery > *{min-width:0}
 .rail{position:absolute;inset:0;display:flex;flex-direction:column;min-height:0;min-width:0}
 .thumbs{
-  display:flex;flex-direction:column;gap:14px;
+  display:flex;flex-direction:column;
+  /* three gaps of a sixth of a thumbnail = 1/27 of the rail, so the fourth
+     lands flush with the bottom of the stage — never a part-cropped fifth */
+  row-gap:calc(100% / 27);
   flex:1 1 auto;min-height:0;min-width:0;overflow-y:auto;
   scrollbar-width:none;
 }
 .thumbs::-webkit-scrollbar{display:none}
-.thumb{flex:0 0 auto}
 .thumb{
+  flex:0 0 auto;width:100%;
   aspect-ratio:1/1;overflow:hidden;background:#f0ebe3;
   border:1px solid transparent;transition:border-color .2s ease;
 }
@@ -280,8 +292,9 @@ a{color:inherit;text-decoration:none}
   .gallery{grid-template-columns:1fr;row-gap:14px}
   .rail-cell{position:static}
   .rail{position:static;height:auto}
-  .thumbs{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding-bottom:4px}
-  .thumb{flex:0 0 86px}
+  .thumbs{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding-bottom:4px;
+    row-gap:0;column-gap:14px}
+  .thumb{flex:0 0 86px;width:86px;height:86px}
   .buy-row{flex-wrap:wrap}
 }
 

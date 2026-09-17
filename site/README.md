@@ -79,6 +79,15 @@ DETAILS copy broke line-for-line with the original design PDF. Outfit is
 narrower, so those line breaks and the ~3px landmark match no longer hold; the
 layout geometry (columns, gallery, spacing) is unchanged.
 
+## Gallery geometry
+
+The stage is square, so its height follows whatever width is left after the
+thumbnail rail. The rail is sized at `(gallery - gap) / 5.5` and the row gap at
+a 27th of the rail height, which makes four thumbnails plus three gaps come to
+exactly the stage height at any viewport — 116px on a 1440 screen, as the
+design has it. A product with more photos scrolls the rail; it never shows a
+part-cropped fifth.
+
 ## Catalogue fields
 
 Each entry in `catalog.js` carries `slug, title, price, priceRange, sku,
