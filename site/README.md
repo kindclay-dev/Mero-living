@@ -76,7 +76,9 @@ The scale, with 10% tracking shared as `--track`:
 | Product titles, catalogue heading, card names | Outfit | light 300 | 10% |
 | Prices, on the page and on the cards | Outfit | medium 500 | 10% |
 | SKU | Outfit 13px | medium 500 | 0% |
-| Body copy, labels, quantity | Outfit | regular 400 | as set |
+| DETAILS heading | Outfit | bold 700 | 3% |
+| DETAILS body copy | Outfit | regular 400 | 0% |
+| Other labels, quantity | Outfit | regular 400 | as set |
 
 Buttons deliberately share the nav's voice — regular at 10% — so the chrome
 reads as one system.
